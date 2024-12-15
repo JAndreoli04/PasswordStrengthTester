@@ -10,6 +10,9 @@ Features
   Provides visual feedback using a progress bar.
   Lightweight and responsive design.
 
+Heres a link to checkout the page yourself:
+https://jandreoli04.github.io/PasswordStrengthTester/
+
 I wanted to make a project that would refresh my skills and be related to my interest
 in CyberSecurity. This project is a bit simple, I plan to redo this with more strict
 guidelines.
