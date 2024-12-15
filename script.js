@@ -1,37 +1,45 @@
 document.getElementById("password").addEventListener("input", function() {
   const password = this.value;
   const feedback = document.getElementById("feedback");
-  const strengthLevel = document.getElementById("strength-level");
-  const strengthColor = document.getElementById("strength-bar");
-  const input = document.getElementById("input");
+  const strengthLevel = document.getElementById("strength-bar");
+
 
   let strength =0;
 
   //criteria for strength
   if(password.length >= 8) strength++;
-  //if(password.length >= 12) strenght++;
-  //if(password.lenght >= 16) strenght++;
-
+  if(password.length >=12) strength+=2;
   if(/[A-Z]/.test(password)) strength++;
   if(/[a-z]/.test(password)) strength++;
   if(/[0-9]/.test(password)) strength++;
   if(/[!@#$%^&*(),.?":{}|<>]/.test(password)) strength++;
+  if(/\s/.test(password)) strength +=3;
 
-  const strengthColors = ["#ff4d4d" , "#ff884d", "#ffd11a", "#9fdf9f", "#4dff4d"];
+  const strengthColors = ["#ff4d4d" , "#ff884d", "#ffd11a", "#9fdf9f", "#4dff4d",
+  "#ff4d4d" , "#ff884d", "#ffd11a", "#9fdf9f", "#4dff4d"];
   const color = strengthColors[strength-1];
-  strengthLevel.style.width = '${strength * 20}%';
-  strengthColor.style.backgroundColor = color;
+
+  strengthLevel.style.backgroundColor = color;
+  strengthLevel.style.width = 10 * strength + "%";
+
 
 
   // Update feedback
   const feedbackMessages = [
-    "Very Weak",
-    "Weak",
-    "Fair",
+    "Too Weak",
+    "Too Weak",
+    "You can do better",
+    "Almost",
+    "Ok",
+    "GOOD",
+    "GOOD",
+    "Strong",
     "Strong",
     "Very Strong"
   ];
   feedback.textContent = feedbackMessages[strength - 1] || "";
   feedback.fontStyle.color = color;
 
+
 });
+
